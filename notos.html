@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NOTOS</title>
+</head>
+<style>
+	html {
+    scroll-behavior: smooth;}
+
+	body,h1,h2,p,ul{margin:0; padding:0;}
+
+	section{
+		min-width: 1600px;
+		height: auto;
+		margin: auto;
+		padding: 0;
+		background-color: #222222; 
+		overflow: hidden;
+	}
+
+	.top-nav {
+    position: absolute;
+    top: 50px; 
+    right: 100px; 
+    z-index: 100; 
+}
+
+.top-nav ul {
+    display: flex;
+    gap: 40px; 
+    list-style: none;
+}
+
+.top-nav a {
+    font-family: 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: ghostwhite;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+
+.top-nav a:hover {
+    color: #16AAAA; 
+}
+
+
+.side-title {
+    position: absolute;
+    top: 70px;
+    left: 70px; 
+    z-index: 100;
+}
+
+.side-title a {
+    font-family: 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: ghostwhite;
+    text-decoration: none;
+    letter-spacing: 4px;
+
+    writing-mode: vertical-rl; 
+    text-transform: uppercase; 
+    
+    transition: opacity 0.3s ease;
+}
+
+.side-title a:hover {
+    opacity: 0.7;
+}
+
+.right-scroll-nav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 600px;
+    z-index: 200; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: none;
+}
+
+.right-scroll-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -250px; 
+    width: 400px;
+    height: 600px;
+    border: 2px solid rgba(22, 170, 170, 0.3); 
+    border-radius: 50%;
+}
+
+.right-scroll-nav ul {
+    list-style: none;
+    position: relative;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px; 
+    align-items: flex-end;
+    pointer-events: auto; 
+}
+
+.right-scroll-nav a {
+    font-family: 'Noto Sans Kr', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333d42;
+    text-decoration: none;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.1, 0.8, 0.2, 1); 
+}
+
+
+.right-scroll-nav li.active a {
+    color: #16AAAA !important; 
+    font-size: 26px !important; 
+    text-shadow: none !important; 
+}
+
+.right-scroll-nav li:nth-child(1) { transform: translateX(-40px); }
+.right-scroll-nav li:nth-child(2) { transform: translateX(-88px); }  
+.right-scroll-nav li:nth-child(3) { transform: translateX(-105px); } 
+.right-scroll-nav li:nth-child(4) { transform: translateX(-88px); }  
+.right-scroll-nav li:nth-child(5) { transform: translateX(-40px); } 
+
+	.title {
+		position: relative;
+		padding: 200px 200px 300px 200px ;
+		display: block;
+		margin: auto;
+	}
+
+	.title p{
+		font-weight: regular;
+		font-size: 18px;
+		line-height: 30px;
+		text-align: left;
+		padding: 20px 0px;
+		padding-left: 0px;
+		word-break: keep-all;
+		color:#E0E0E0;
+		max-width: none;
+	}
+
+	h1{	position: relative;
+		font-family: 'Times New Roman', serif;
+		font-size: 300px;
+		color:#FF6B6B;
+		letter-spacing: -6px;
+		transform: scaleX(0.8);
+		display: inline-block;
+		transform-origin: left top; 
+		z-index: 5;
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+	}
+
+
+	.archtitle{
+		position: relative;
+		padding: 200px 0 200px 0;
+		display: block;
+	}
+
+	.archnum{
+		font-weight: regular;
+		font-size: 23px;
+		text-align: left;
+		padding: 0px 200px 10px 200px; 
+		word-break: keep-all;
+		color:#16AAAA;
+		z-index: 5} 
+
+	.content{
+		position: relative;
+		padding: 250px 250px;
+		margin: auto;
+		display: block;
+	}
+
+	h2{ position: relative;
+		font-family: 'noto sans kr', serif;
+		font-size: 150px;
+		color: #E0E0E0; 
+		line-height: auto;
+		padding: 0 200px;
+		z-index: 5;
+		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+	}
+
+	p {	position: relative;
+		z-index: 5;
+		font-weight: normal;
+		font-size: 26px;
+		line-height: 46px;
+		text-align: left;
+		max-width: 550px;
+		padding: 40px 100px;
+		word-break: keep-all;
+		color:#E0E0E0;
+		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+
+	}
+	.coverimg {position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height:100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+            pointer-events: none;}
+
+	.flex {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 100px;
+		padding: 100px 250px 0 250px;
+		position: relative;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.flex p {
+		font-family: 'noto sans kr', sans-serif;
+		font-size: 26px;
+		line-height: 46px;
+		color: #E0E0E0;
+		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+		word-break: keep-all;
+		
+		max-width: 550px; 
+		width: 100%;
+		padding: 0 !important; 
+		margin: 0;
+		
+		position: relative;
+		will-change: transform;
+
+		transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+	}
+
+	.next-paragraph-box {
+		display: flex;
+		justify-content: flex-end; 
+		padding: 0 250px;
+	
+		margin-top: 500px; 
+		position: relative;
+		z-index: 5;
+	}
+
+	.next-paragraph-box p {
+		font-family: 'noto sans kr', sans-serif;
+		font-size: 26px;
+		line-height: 46px;
+		color: #E0E0E0;
+		word-break: keep-all;
+		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+		
+		max-width: 550px;
+		width: 100%;
+		padding: 0 !important;
+		margin: 0;
+	}
+
+	.quotes p{
+		text-align: left;
+		font-weight: bold;
+		font-size: 48px;
+		line-height: 80px;
+		max-width: none;
+		color:#FF7676;
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+		padding: 0px;
+}
+	.lastquotes{padding-bottom: 400px}
+
+	.lastquotes p{
+		text-align: left;
+		font-weight: bold;
+		font-size: 42px;
+		line-height: 80px;
+		color:#16AAAA;
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+		padding: 0px 250px;
+		max-width: none;
+	}
+
+
+
+</style>
+<body>
+
+	<div class="side-title">
+		<a href="index.html">Odyssey</a>
+	</div>
+
+	<nav class="top-nav">
+		<ul>
+			<li><a href="quest.html">I. QUEST</a></li>
+			<li><a href="notos.html" style="color: #FF7676;">II. NOTOS</a></li> <li><a href="home.html">III. HOME</a></li>
+		</ul>
+	</nav>
+
+	<nav class="right-scroll-nav">
+    <ul>
+        <li class="active"><a href="#chapter1">01</a></li>
+        <li><a href="#chapter2">02</a></li>
+        <li><a href="#chapter3">03</a></li>
+        <li><a href="#chapter4">04</a></li>
+        <li><a href="#chapter5">05</a></li>
+    </ul>
+	</nav>
+
+	<section>
+		<div class="title">
+			<h1>NOTOS</h1>
+			<p class="title">
+			한 순간의 오만과 실수로 신의 분노를 산 오디세우스는 <br>
+			수많은 역경과 유혹을 이겨내고
+			자신의 집으로 돌아가고자 한다.</p>
+		</div>
+	</section>
+
+	<section>
+	</section>
+
+	<section>
+		<div class="archtitle" style="padding-bottom:0">
+			<img src="./img/NOTOS1.png" style="position:absolute; width: 100%; z-index: 1; margin-top:-30%;">	
+			<p class="archnum" id="chapter1">01</p>
+			<h2>외눈 거인,</h2>
+			<h2 style="margin-left: 27%;">폴리페무스를</h2>
+			<h2 style="margin-left: 10%; padding-bottom: 100px;">만나다.</h2>
+			
+			<div class="flex">
+				<p>
+				귀향 중 휴식을 위해 들린 한 섬에서 
+				오디세우스 일행은 외눈박이 거인 
+				폴리페무스의 동굴에 갇히게 된다. 거인은 
+				동굴 문을 거대한 바위로 막고, 병사들을 
+				차례로 잡아먹기 시작했다.
+				</p>
+				<p>
+				위기에 처한 오디세우스는 잔꾀를 내어 
+				거인에게 독한 포도주를 대접했다. 기분이 좋아진 거인이 이름을 묻자, 꾀많은 오디세우스는 자신의 이름을 아무도(Nobody)라고 
+				알려줬다. 
+				</p>
+			</div>
+            
+			<div class="next-paragraph-box">
+				<p>
+				술에 취한 거인이 깊은 잠에 빠지자, 
+				오디세우스는 나무 말뚝을 불로 달군 뒤 
+				거인의 외눈을 찔렀다.
+				</p>
+			</div>
+			<img src="./img/killgiant.png" style="position:relative; z-index:1; width:120%; height: 120%; rotate: -10deg; margin-left:-5%;">
+		</div>
+        
+		<div class="content" style="padding-top:0">
+			<p style="margin-left:0%">
+				눈이 찔려 장님이 된 폴리페무스가 비명을 지르자 동료 거인들은 동굴 앞으로 와 무슨 일이냐고 물었다. 하지만 폴리페무스는 “지금 아무도 나를 죽이려 하지 않는다!”라고 소리칠 뿐이었고, 동료 거인들은 별일 아니라 생각하며 돌아갔다. 그 틈을 타 오디세우스 일행은 동굴을 무사히 탈출했다.</p>
+
+			<p style="margin-left:0%">
+				하지만 오디세우스는 도망치면서 오만을 부려버렸다. <br><br>
+				그는 외쳤다.  
+			</p>
+			</div>
+
+
+			<div class="content quotes" style="padding-top:0">
+				<p>“외눈거인이여! 만일 필멸자들 중 누군가가 그대의 눈이</p>
+				<p>그토록 비참하게 먼 이유를 묻는다면, 도시를</p>
+				<p>파괴하는 자, 라에르테스의 아들, 이타카의 왕</p>
+				<p>오디세우스가 그대의 눈을 멀게 했다고 말하라!”</p>
+
+				<img src="./img/oman.png" style="display: block; margin-left:50%;width: 50%; padding: 30px;
+        		height: auto;">
+			</div>
+		<div class="content">
+		<p style=>분노한 폴리페무스는 자신의 아버지에게 오디세우스를 저주해 달라 빌었는데 하필 그의 아버지는 바다의 신 포세이돈이었다.<br> 
+		아들의 모습에 격노한 포세이돈은 바다를 뒤엎었으니 이 사건을 계기로 오디세우스는 수십 년간 바다를 떠돌게 된다.</p>
+		</div>
+
+		<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<P>검은 머리의 신이자 대지를 
+			흔드시는 포세이돈이시여, 
+			내가 진정 당신의 아들이라면 오디세우스가 결코 고향 땅을 밟지 못하게 하소서. 만약 그가 고향에 돌아가는 것이 
+			운명이라면, 모든 동료를 잃고 다른 이의 배를 탄 채 비참한 모습으로 아주 오랜 시간이 흐른 뒤에야 도착하게 하소서.</p><p style="font-size:100px; text-align: right;">”</p>
+		</div>
+
+	</section>
+
+	<section>
+		<div class="archtitle" id="chapter2">
+			<p class="archnum">02
+			</p>
+			<h2 style="margin-left:5%">마녀,</h2>
+			<h2 style="margin-left:25%;">돼지,</h2>
+			<h2 style="margin-left:45%; padding-bottom: 100px;">연회.</h2>
+			<img src="./img/NOTOS2.1.png" class="coverimg">
+		</div>
+			<div class="content" style="padding-top:0px;"> 
+			<p>
+				바다를 떠돌던 오디세우스 일행은 마녀 키르케의 아이아이에 섬에 도착한다. 그러나 선발대로 나선 부하들이 마녀가 준 포도주를 마시고 단체로 돼지가 되버리는 참사가 일어난다.
+			</p>
+		
+			<p>
+				마녀가 음식에 기억을<br>
+				지우는 독약을 타서 먹인 뒤,<br> 돼지로 변신시켜 축사에<br>
+				가둔 것이었다. 
+			</p>
+			<img src="./img/doyaji.png" alt="키르케가 돼지로만드는" style="position:absolute; width:50%; top:20%; left: 50%;">
+
+			</div>
+		<div class="content">
+			<p style="padding-top: 250px; margin-left:40%">동료들을 구하기 위해 홀로 나선 오디세우스는 도중에 전령의 신 헤르메스를 만나게 된다. 이때 헤르메스는 그를 돕고자 마법을 
+원천 봉쇄하는 우유 빛깔 꽃의 신비한 약초 ‘몰리’를 
+전해줬다.</p>
+			<img src="./img/moli.png" style="width:35%; padding: 30px 180px 250px 180px ;" alt="몰리주는 이미지">
+			<p style="max-width: 700px;">키르케는 오디세우스가 성에 당도하자 그를 맞이하며 똑같은 마법의 포도주를 권했다. 그 또한 홀릴 작정이었던 것이다. 하지만 오디세우스는 ‘몰리’ 약초
+				덕에 마법이 통하지 않았다. 오히려 오디세우스는 칼을 뽑아들어 그녀의 목을 겨누며 위협했다.</p>
+			<img src="./img/circe.png" style="width:100%; margin-left: 30%;" alt="오디가 칼겨누는 이미지">
+			<p style="max-width: 800px; margin-left:30%;" >
+				뜻밖의 상황에 당황한 키르케는 부하들을 다시 인간으로 돌려놓으며 오디세우스에게 사과했다. <br>
+				아예 키르케는 그의 용모와 성품에 반해버려 연회를 열고 그와 동료들을 1년 동안 편안히 머물게 해주었다. 떠날 때가 되자 키르케는 그와의 이별에 슬퍼하면서도 안전한 귀향로를 찾기 위해 저승에 가서 눈먼 예언자 테이레시아스를 만나라는 조언을 건넨다.
+			</p>
+		</div>
+
+		<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<p>당신은 누구시며 어디서 오신 분입니까? 당신의 도시와 
+				부모는 어디 있습니까? 당신이 
+				매혹되지 않다니 참으로 
+				경이롭군요. 지금까지 이 
+				마법을 견뎌낸 사람은 아무도 
+				없었습니다. 과연 당신의 
+				가슴 속에는 마법에 걸리지 
+				않는 마음이 들어 있군요!
+			</p>
+			<p style="font-size:100px; text-align: right;">”</p>
+		</div>
+	</section>
+
+	<section>
+		<div class="archtitle" style="height: 1400px;" id="chapter3">
+			<p class="archnum" style="position: relative;">03
+			</p>
+			<h2 style="position: relative; padding-bottom: 200px;">저승에서.</h2>
+			<img src="./img/NOTOS3.1.png" class="coverimg">
+			<p style="position:relative; padding:350px; max-width:600px; z-index:5; ">
+				키르케의 안내로 저승에 간 오디세우스는 눈먼 예언자 티레시아스를 만난다. 예언자는 귀환할 수 있는 유일한 방법과 무서운 경고를 남겼다.
+			</p>
+			<img src="./img/skull.png" alt="예언자 얼굴" style="position:relative; z-index:2;width: 60%; margin-left: 0%;">
+		</div>
+
+
+		<div class="content" style="padding-top:0px;">
+			<div class="quotes">
+			
+			<p style="padding: 150px 0px 150px 0px; max-width: 800px; margin-left: 40%;">
+				“태양신 헬리오스의 섬에 가거든 그가 기르는 소들을 절대로 해치지 마십시오. 만약 소를 건드린다면, 당신은 모든 동료를 잃고 홀로 비참하게 고향에 도착할 것입니다.”</p>
+			</div>
+
+			<p style="margin-left:40%; padding-bottom: 180px;">예언자의 경고를 들은 오디세우스는 탄식을 내뱉으면서도, 담담하게 신탁을 받아들였다. 그는 앞으로의 불길한 미래로부터 부하들을 단단히 단속하리라 결심했다.</p>
+
+			<p>또한 오디세우스는 트로이 전쟁의 총사령관, 아가멤논의 혼령을 마주하고 크게 놀랐다. 전쟁에서 승리하고 당당하게 귀환했던 영웅은, 정작 집에 도착하자마자 아내와 그녀의 내연남에게 기습당해 비참하게 살해당했다. 배신감에 통곡하던 아가멤논은 오디세우스에게 충고를 건넸다.</p>
+
+			<img src="./img/death.png" alt="아가멤논의 죽음" style="position: relative; z-index: 1; width: 90%; margin-left: 25%;">
+
+			<div class="quotes" style="">
+			<p style="padding:0px 0px 350px 0px; max-width: 800px; margin-left:0%;">
+				
+			 “사람을 절대로 온전히 믿지 마시오. 고향에 들어갈 때도 정체를 숨긴 채 비밀리에 가시오. 사람은 더이상 믿을 수 없으니.”</p>
+			</div>
+ 			
+ 			<p style="max-width: 700px;margin-left:40%">오디세우스는 저승에서 얻은 씁쓸한 지혜들을 품에 안고 다시 산 자들의 세상으로 발길을 돌렸다.</p>
+
+		</div>
+
+ 				<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<p>죽음에 대해 내게 그럴싸하게 말하지 마시오, 고결한 오디세우스여! 나는 죽은 자들의 왕이 되어 군림하느니, 차라리 지상에서 영토도 없고 재산도 없는 가난한 농부 밑에서 품삯을 받는 머슴이 되고 싶소.
+			</p>
+			<p style="font-size:100px; text-align: right;">”</p>
+		</div>
+
+	</section>
+
+	<section>
+		<div class="archtitle" id="chapter4">
+			<p class="archnum">04
+			</p>
+			<h2>혼자가 되다.</h2>
+		</div>
+		<div class="content" style="padding-top:0px;">
+			<p>
+				태양신 헬리오스의 섬에 도착한 오디세우스 일행. 그들은 한 달 동안 몰아친 거센 역풍 때문에 섬에 발이 묶이고 만다. 오디세우스는 예언자의 경고를 기억하고 헬리오스의 소들을 먹지 마라 지시했다. 하지만 그가 자리를 비운 사이 굶주림에 미쳐가던 부하들은 결국 소들을 도살해 먹어버렸다.
+			</p>
+		</div>
+		<div class="content" style="height:1000px">
+			<p style="position: relative; z-index:5; max-width: 800px;">
+				분노한 헬리오스는 제우스에게 이들을 처벌해달라 요구했다. 결국 오디세우스 일행이 출항하자마자 제우스가 벼락을 내리쳤다. 순식간에 배가 박살났고, 그들은 하염없이 거센 조류에 밀려갔다.<br> 
+				그리고 그들이 당도한 곳은 여섯 머리 괴물 스킬라와 소용돌이 카리브디스가 버티고 있는 지옥의 해협이었다.
+			</p>
+			<img src="./img/NOTOS4.1.png" class="coverimg">
+
+			<p style="position: relative; z-index:5; max-width: 800px; padding-top: 500px; margin-left: 30%;">
+				부하들은 모두 거대한 소용돌이에 휩쓸리거나 스킬라의 이빨에 씹혀 참혹한 죽음을 맞이했다. 홀로 남은 오디세우스는 절벽에 위태롭게 자라난 무화과나무 가지를 필사적으로 붙잡고 허공에 매달렸다. 그는 공포와 절망 속에서 버텨야만 했다.
+			</p>
+			<img src="" alt="무화과나무에 매달린 이미지"> 
+		</div>
+			<div class="content" style="padding-bottom:300px">
+			<p style="max-width:600px">
+			이윽고 거대한 소용돌이 속에서 박살난 배의 돛대와 판자조각이 다시 떠오르자, 오디세우스는 뛰어내려 그것을 붙잡았다. 그는 손바닥이 부르트도록 필사적으로 물을 저어 죽음의 해협을 간신히 빠져나왔다. <br>
+			순식간에 부하도, 배도 모두 잃은 미아가 된 오디세우스는 망망대해를 표류하다가, 요정 칼립소가 사는 오기기아 섬에 도달하게 된다.
+			</p>
+		</div>
+		
+	</section>
+
+
+	<section>
+		<div class="archtitle" id="chapter5" style="height:900px; width: auto;">
+			<p class="archnum" style="position: relative;">05
+			</p>
+			<h2 style="position: relative">여신 칼립소와 공주 나우시카</h2>
+			<img src="./img/NOTOS5.1.png" class="coverimg">
+		</div>
+		<div class="content">
+		
+		<p>표류하던 오디세우스는 어찌저찌 여신 칼립소의 오기기아 섬에 도달했다. 얄궃게도 칼립소는 그에게 반해 남편으로 삼고자 했다. 그 때문에 그는 여신과 함께 편안한 하루하루를 보냈지만, 여신은 영원한 생명과 늙지 않는 젊음까지 약속하며 무려 7년 동안이나 그를 섬에 묶어 두었다.
+		</p>
+
+		<p>
+			하지만 오디세우스는 여신의 호의와 애정 속에서도 늘 마음을 붙이지 못한 채 온종일 해변에 홀로 앉아 바다를 바라보며 고향과 가족 생각에 눈물을 흘렸다.
+
+		</p>
+
+		<p> 보다못한 제우스가  "오디세우스를 고향으로 돌려보내라"고 명령하자, 칼립소는 반발하며 올림포스 신들의 내로남불을 비판하며 그를 보내주지 않으려 했다. </p>
+			
+			<div class="quotes" style="">
+			<p style="padding:0px 0px 350px 0px; max-width: 800px; margin-left:0%;">
+			 "당신들은 참으로 시기심이 많고 가혹하구려! 신들은 인간들과 바람을 잘만 피우면서, 내가 파선당해 죽어가던 인간을 구해 남편으로 삼으려 하니 이제 와서 빼앗아 가겠다는 말이오?" </p>
+			</div>
+		
+		<p>하지만 아무리 그녀라도 제우스의 명령을 거스를 수는 없었다. 여신은 그에게 뗏목과 식량을 내어주며 고향으로 돌아가 가족과 재회하길 빌어주며 이별의 슬픔을 뒤로했다.</p> 
+
+		</div>
+
+		<div class="content">
+			<p>이후 또다시 폭풍을 만난 오디세우스는 스케리아 섬 해변에 비참한 몰골로 표류하게 된다. 그러나 선한 공주 나우시카와 우연히 만나 왕궁에 초대받는다. </p>
+
+			<p>궁전에서 털어놓은 방랑담에 깊은 감동을 받은 왕과 공주는 그에게 안전한 배편을 내어주었고, 마침내 오디세우스는 20년 만에 그토록 갈망하던 고향 이타카의 흙을 극적으로 밟게 되었다.
+			</p>
+
+		</div>
+
+	</section>
+
+
+
+	<script>
+		window.addEventListener('scroll', () => {
+			const flexContainer = document.querySelector('.flex');
+			if (!flexContainer) return;
+
+			const rect = flexContainer.getBoundingClientRect();
+			const windowHeight = window.innerHeight;
+
+	
+			const startY = windowHeight * 0.5; 
+		
+			const endY = -windowHeight * 0.3;   
+			const totalRange = startY - endY;
+
+			
+			let progress = (startY - rect.top) / totalRange;
+			progress = Math.min(Math.max(progress, 0), 1); 
+
+			const leftP = flexContainer.querySelector('p:nth-of-type(1)');
+			const rightP = flexContainer.querySelector('p:nth-of-type(2)');
+
+			if (leftP && rightP) {
+			
+				const maxLeftMove = 150;  
+				const maxRightMove = 450;
+
+				leftP.style.transform = `translateY(${progress * maxLeftMove}px)`;
+				rightP.style.transform = `translateY(${progress * maxRightMove}px)`;
+			}
+		});
+
+
+	window.addEventListener('scroll', () => {
+    // 1. 매칭시킬 챕터 상자들을 싹 다 긁어모으기
+    const chapters = [
+        document.getElementById('chapter1'),
+        document.getElementById('chapter2'),
+        document.getElementById('chapter3'),
+        document.getElementById('chapter4'),
+        document.getElementById('chapter5')
+    ];
+    
+    // 2. 우측 메뉴의 li 조각들을 순서대로 매칭
+    const navItems = document.querySelectorAll('.right-scroll-nav li');
+    
+    let currentActiveIndex = 0;
+    
+    // 3. 현재 화면 상단 스크롤 위치 체크 (살짝 보정치 부여)
+    const scrollPosition = window.scrollY + (window.innerHeight * 0.3);
+
+    chapters.forEach((chapter, index) => {
+        if (chapter) {
+            const chapterTop = chapter.offsetTop;
+            // 스크롤이 해당 챕터 구역 진입점보다 밑으로 내려갔다면 인덱스 업데이트
+            if (scrollPosition >= chapterTop) {
+                currentActiveIndex = index;
+            }
+        }
+    });
+
+    // 4. 기존 active 다 압수하고, 현재 챕터에 해당하는 녀석에게만 active 완장 채워주기
+    navItems.forEach((item, index) => {
+        if (index === currentActiveIndex) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+});
+
+
+	</script>
+
+</body>
+</html>
