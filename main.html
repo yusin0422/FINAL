@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>여긴오디나는누</title>
+<style>
+	body,h1,h2,p,ul{margin:0; padding:0;}
+
+	section{
+	min-width: 1600px;
+	height: auto;
+	margin: auto;
+	padding: 0;
+	background-color: #222222; 
+    overflow: hidden;}
+
+	p{
+    		font-weight: regular;
+    		font-size: 21px;
+    		line-height: 40px;
+    		text-align: left;
+    		padding: 40px 300px;
+    		word-break: keep-all;
+    		color:ghostwhite;}
+
+    h2{font-family: 'Times New Roman', serif;
+    	font-size: 200px;
+    	color:#FF6B6B;
+
+    	letter-spacing: -6px;
+    	transform: scaleX(0.8); 
+    	}
+	
+	.titlesection{min-width: 1600px;
+	height: 100vh;
+	margin: auto;
+	padding: 0;
+	background-color: #222222; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    		}
+
+	.title{
+	width: 1200px; 
+    height: 600px; 
+	position: relative; 
+    background-color:#FF6B6B;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+	.title .horse-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    height: 950px; 
+    width: auto;
+    z-index: 1;
+    opacity: 0.85;/
+}
+
+	.title h1 {
+    font-family: 'Times New Roman', serif;
+    font-size: 13rem;
+    color: #000000;
+    font-weight: 900;
+    letter-spacing: -6px;
+    transform: scaleX(0.8); 
+    margin: 0;
+    position: relative;
+    z-index: 2;}
+
+	.about{
+    	position: relative;
+    	padding: 200px;
+    	display: block;}
+
+    .story {padding: 0px 200px ;
+    		position: relative;
+    		display: block;}
+    .story p{
+    		padding: 0px 200px;
+    		}
+
+    .plot{
+    display: flex;
+    justify-content: center;
+    gap: 40px; 
+    padding: 100px 50px;
+    background-color: #222222;
+}
+
+.plot-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.card-inner {
+    position: relative;
+    width: 280px;
+    height: 550px;
+    background-color: #FF6B6B;
+    border-radius: 140px 140px 0 0; 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px 40px 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease; 
+}
+
+.card-inner .card-image {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.card-title {
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.card-title .number {
+    font-family: 'Times New Roman', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    color: #000000;
+}
+
+.card-title h2 {
+    font-family: 'noto sans kr', serif;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #000000;
+    margin-top: 5px;
+}
+
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.55); 
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    opacity: 0; 
+    transition: opacity 0.4s ease;
+    z-index: 5;
+    display: flex;
+}
+
+.hover-overlay .description {
+    font-family: 'noto sans kr', serif;
+    padding: 0px ;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: bold;
+    text-align: center;
+    word-break: keep-all;
+    z-index: 6;
+    color: #000000;
+}
+
+.plot-card:hover .card-inner {
+    transform: translateY(-8px);
+}
+
+.plot-card:hover .hover-overlay {
+    opacity: 1;
+}
+
+.plot-card:hover .card-image,
+.plot-card:hover .card-title {
+    opacity: 0.15; 
+}
+
+</style>
+</head>
+<body>
+<section class="titlesection">
+
+    <div class="title">
+        <img src="title21.png" class="horse-img" alt="ODYSSEY HORSE">
+        <h1>ODYSSEY</h1>
+    </div>
+</section>
+
+<section>
+<div class="about">
+	<h2>ABOUT</h2>
+	<p>호메로스의 《오디세이아》는 신의 분노 속에서 수 년간 바다를 표류한 영웅 오디세우스의 귀향을 다룬 서사시이자, 서구 문학사에서 '영웅의 여정'이라는 원형을 정립한 최초의 모험담이다. 시련을 겪으며 성장하고 마침내 귀환하는 이 서사 구조는 오늘날 모든 현대 소설과 영화의 뿌리가 되었으며, 제목인 '오디세이' 자체가 '파란만장한 여정'을 뜻하는 대명사로 굳어질 만큼 압도적인 위상을 차지한다. </p>
+
+	<p> 특히 신이 제시한 영생도 거절한 채 필멸자로서 고향의 흙을 밟고자 했던 오디세우스의 집념은 운명에 맞서는 인간 이성의 위대함을 상징하며, 이후 제임스 조이스의 《율리시스》를 비롯한 수많은 문학적 재창조를 낳으며 인류가 지닌 모든 탐색과 귀환 서사의 영원한 출발점이 되었다.</p>	
+</div>
+</section>
+
+<section>
+	<div class="story">
+	<h2>STORY</h2>
+	<p>click and enjoy it.</p>
+	</div>
+	<div class="plot">
+
+		<a href="quest.html" class="plot-card">
+			<div class="card-inner">
+				<img src="quest.png" class="card-image" alt="quest">
+			
+			<div class="card-title">
+				<span class="number">I</span>
+				<h2>QUEST</h2>
+			</div>
+
+			<div class="hover-overlay">
+			<p class="description">
+				오디세우스가 실종된 후 10년.<br>
+				성은 구혼자들의 연회로 더럽혀졌다.
+				아들 텔레마코스는 아버지를
+				찾아 여정을 떠나야만 한다.
+			</p>	
+			</div>
+
+			</div>
+		</a>
+		
+		<a href="notos.html" class="plot-card">
+			<div class="card-inner">
+				<img src="Notos.png" class="card-image" alt="Notos">
+			
+			<div class="card-title">
+				<span class="number">II</span>
+				<h2>NOTOS</h2>
+			</div>
+
+			<div class="hover-overlay">
+			<p class="description">
+				한순간의 오만과 실수로<br> 신의 분노를 산 오디세우스. <br>
+				그는 수많은 역경와 유혹을 <br> 이겨내고
+				자신의 집으로 <br>돌아가고자 한다.
+			</p>	
+			</div>
+			
+			</div>
+		</a>
+
+<a href="home.html" class="plot-card">
+			<div class="card-inner">
+				<img src="home.png" class="card-image" alt="home">
+			
+			<div class="card-title">
+				<span class="number">III</span>
+				<h2>HOME</h2>
+			</div>
+
+			<div class="hover-overlay">
+			<p class="description">
+				왕비 페넬로페는<br>
+				구혼자들에게 마지막<br> 
+				시험을 제안한다.<br>
+				동시에 물밑에선 부자의 계획이 시작되는데...
+			</p>	
+			</div>
+
+			</div>
+		</a>
+
+	</div>
+</section>
+
+</body>
+</html>
