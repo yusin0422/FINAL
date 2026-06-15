@@ -1,0 +1,396 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+KR:wght@100..900&family=Shrikhand&display=swap');
+
+
+    html {
+    scroll-behavior: smooth;
+    user-select: none;
+    }
+
+    body,h1,h2,p,ul{margin:0; padding:0;}
+
+    body{background-color: #222222;}
+    section{
+        min-width: 1600px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+        background-color: #222222; 
+        overflow: hidden;
+    }
+
+    .top-nav {
+    position: absolute;
+    top: 50px; 
+    right: 100px; 
+    z-index: 100; 
+}
+
+.top-nav ul {
+    display: flex;
+    gap: 40px; 
+    list-style: none;
+}
+
+.top-nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: ghostwhite;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+
+.top-nav a:hover {
+    color: #16AAAA; 
+}
+
+
+.side-title {
+    position: absolute;
+    top: 70px;
+    left: 70px; 
+    z-index: 100;
+}
+
+.side-title a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: ghostwhite;
+    text-decoration: none;
+    letter-spacing: 4px;
+
+    writing-mode: vertical-rl; 
+    text-transform: uppercase; 
+    
+    transition: opacity 0.3s ease;
+}
+
+.side-title a:hover {
+    opacity: 0.7;
+}
+
+.right-scroll-nav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 600px;
+    z-index: 200; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: none;
+}
+
+.right-scroll-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -250px; 
+    width: 400px;
+    height: 600px;
+    border: 2px solid rgba(22, 170, 170, 0.3); 
+    border-radius: 50%;
+}
+
+.right-scroll-nav ul {
+    list-style: none;
+    position: relative;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px; 
+    align-items: flex-end;
+    pointer-events: auto; 
+}
+
+.right-scroll-nav a {
+    font-family: 'Noto Sans Kr', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333d42;
+    text-decoration: none;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.1, 0.8, 0.2, 1); 
+}
+
+
+.right-scroll-nav li.active a {
+    color: #16AAAA !important; 
+    font-size: 26px !important; 
+    text-shadow: none !important; 
+}
+
+.right-scroll-nav li:nth-child(1) { transform: translateX(-40px); }
+.right-scroll-nav li:nth-child(2) { transform: translateX(-88px); }  
+.right-scroll-nav li:nth-child(3) { transform: translateX(-105px); } 
+.right-scroll-nav li:nth-child(4) { transform: translateX(-88px); }  
+.right-scroll-nav li:nth-child(5) { transform: translateX(-40px); } 
+
+/* 일반 요소용 (기존 그대로 유지) */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+.scroll-fade.is-shown {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ⚡ [새로 추가] .flex 내부의 p 태그들을 위한 오파시티 전용 규칙 */
+/* 위치 이동(transform)은 주인님의 스크립트가 완벽하게 통제하므로, 여기선 투명도만 부드럽게 켜줍니다. */
+.scroll-fade-opacity {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity;
+}
+.scroll-fade-opacity.is-shown {
+    opacity: 1;
+}
+
+    .title {
+        position: relative;
+        padding: 200px 200px 300px 200px ;
+        display: block;
+        margin: auto;
+    }
+
+    .title p{
+        font-weight: regular;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: left;
+        padding: 20px 0px;
+        padding-left: 0px;
+        word-break: keep-all;
+        color:#E0E0E0;
+        max-width: none;
+    }
+
+    h1{ position: relative;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 300px;
+        color:#FF6B6B;
+        letter-spacing: -6px;
+        transform: scaleX(0.8);
+        display: inline-block;
+        transform-origin: left top; 
+        z-index: 5;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    }
+
+
+    .archtitle{
+
+        position: relative;
+        padding: 200px 0 200px 0;
+        display: block;
+    }
+
+
+    .archnum{
+        font-weight: regular;
+        font-size: 23px;
+        text-align: left;
+        padding: 0px 200px 10px 200px; 
+        word-break: keep-all;
+        color:#16AAAA;
+        z-index: 5} 
+
+    .content{
+        position: relative;
+        padding: 180px 250px;
+        margin: auto;
+        display: block;
+    }
+
+    h2{ position: relative;
+        font-family: 'noto sans kr', serif;
+        font-size: 150px;
+        color: #E0E0E0; 
+        line-height: auto;
+        padding: 0 200px;
+        z-index: 5;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    p { position: relative;
+        z-index: 5;
+        font-weight: normal;
+        font-size: 26px;
+        line-height: 46px;
+        text-align: left;
+        max-width: 550px;
+        padding: 40px 100px;
+        word-break: keep-all;
+        color:#E0E0E0;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+
+    }
+    .coverimg {position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height:100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+            pointer-events: none;}
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0px;
+        padding: 100px 250px 0 250px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .flex p {
+        font-family: 'noto sans kr', sans-serif;
+        font-size: 26px;
+        line-height: 46px;
+        color: #E0E0E0;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+        word-break: keep-all;
+        
+        max-width: 550px; 
+        width: 100%;
+        padding: 0 !important; 
+        margin: 0;
+        
+        position: relative;
+        will-change: transform;
+
+        transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+    }
+
+    .next-paragraph-box {
+        display: flex;
+        justify-content: flex-end; 
+        padding: 0 250px;
+    
+        margin-top: 500px; 
+        position: relative;
+        z-index: 5;
+    }
+
+    .next-paragraph-box p {
+        font-family: 'noto sans kr', sans-serif;
+        font-size: 26px;
+        line-height: 46px;
+        color: #E0E0E0;
+        word-break: keep-all;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+        
+        max-width: 550px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0;
+    }
+
+    .img-wrapper-14 {
+    position: relative;
+    width: 70%; 
+    display: inline-block;
+    overflow: visible; 
+}
+
+    .img-wrapper-14 .base-img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.img-wrapper-14 .floating-img {
+    position: absolute;
+    width: 20%; 
+    z-index: 2;
+    
+   
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: top, left, transform;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-wrapper-14.step-1 .floating-img {
+    top: 20%;
+    left: 50%;
+    transform: translate(0, 0);
+}
+
+/* 2단계: 좌측 하단 */
+.img-wrapper-14.step-2 .floating-img {
+    top: 55%;
+    left: 10%;
+    transform: translate(0, 0);
+}
+
+/* 3단계: 한가운데 회귀 */
+.img-wrapper-14.step-3 .floating-img {
+    top: 70%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.canvas-container {
+    position: relative; /* 자식들을 잡아줄 기준점 */
+    width: 100vw;
+    height: 100vh;
+    padding: 180px;       /* 적당한 높이 확보 */
+}
+
+.text-box {
+    position: absolute;
+    top: 10%;           /* 여기서 값을 줄이면 텍스트가 더 위로 올라가 */     /* 텍스트 너비 */
+}
+
+.img-cow {
+    position: absolute;
+    top: 0%;           /* 텍스트보다 아래에 배치 */
+    left: 50%;
+    width: 60%;         /* 이미지 크기 */
+}
+
+.img-fire {
+    position: absolute;
+    top: 30%;           /* middle 이미지랑 같은 라인 */
+    left: 68%;
+    width: 25%;
+}
+
+    .quotes p{
+        text-align: left;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 80px;
+        max-width: none;
+        color:#FF7676;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        padding: 0px;
+}
+    .lastquotes{padding: 180px 100px 400px 100px}
+
+    .lastquotes p{
+        text-align: left;
+        font-weight: bold;
+        font-size: 90px;
+        line-height: 110px;
+        color:#16AAAA;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        padding: 0px;
+        max-width: none;
+    }
