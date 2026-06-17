@@ -28,7 +28,7 @@ body, html {overflow-x: clip;}
     		word-break: keep-all;
     		color:ghostwhite;}
 
-    h2{font-family: 'Times New Roman', serif;
+    h2{ font-family: 'Cormorant Garamond', serif;
     	font-size: 200px;
     	color:#FF6B6B;
 
@@ -55,7 +55,7 @@ body, html {overflow-x: clip;}
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    font-family: 'Times New Roman', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 13rem;
     color: #000000;
     font-weight: 900;
@@ -363,6 +363,7 @@ body, html {overflow-x: clip;}
     margin: 0 !important;
 }
 
+/* 호버 이펙트 */
 .mosaic-item:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.7);
@@ -574,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let winW = window.innerWidth;
         let winH = window.innerHeight;
 
- 
+        // 1. 붉은 화면 & 말 이미지 (아까랑 같음)
         if (progress < 0.2) {
             redBg.style.width = '100vw';
             redBg.style.height = '100vh';
@@ -599,19 +600,20 @@ document.addEventListener('DOMContentLoaded', () => {
             horseImg.style.opacity = '0';
         }
 
-      
+        // 2. 텍스트 & 네비게이션 고정 로직 (계산식 수정됨)
         if (progress < 0.4) {
-   
+            // 원본 (화면 중앙)
             titleText.style.transform = `translate(-50%, -50%) scale(1)`;
             titleText.style.color = `#000000`;
             navBar.style.opacity = '0';
         } else if (progress >= 0.4 && progress <= 0.8) {
             let txtP = (progress - 0.4) / 0.4;
- 
-            let moveY = (winH / 2 - 40) * txtP; 
-            let scale = 1 - (0.75 * txtP);
             
-  
+            // 얼마나 위로 올라갈지 픽셀 계산 (화면 절반 - 상단 네비게이션 중앙 40px)
+            let moveY = (winH / 2 - 40) * txtP; 
+            let scale = 1 - (0.75 * txtP); // 1배율 -> 0.25배율로 축소
+            
+            // X축은 정중앙(-50%) 유지, Y축만 위로 끌어올림
             titleText.style.transform = `translate(-50%, calc(-50% - ${moveY}px)) scale(${scale})`;
             
             let r = Math.floor(255 * txtP);
@@ -621,6 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             navBar.style.opacity = `${txtP}`; 
         } else {
+            // 스크롤 완전히 내렸을 때 상단에 영원히 박제 (이후 섹션에서도 유지됨)
             let moveY = (winH / 2 - 40); 
             titleText.style.transform = `translate(-50%, calc(-50% - ${moveY}px)) scale(0.25)`;
             titleText.style.color = `#FF6B6B`;
