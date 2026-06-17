@@ -4,125 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>QUEST</title>
-	<style>
-		html {
-    scroll-behavior: smooth;}
+	
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/script.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+KR:wght@100..900&family=Shrikhand&display=swap" rel="stylesheet">
 
-	body,h1,h2,p,ul{margin:0; padding:0;}
-
-	section{
-		min-width: 1600px;
-		height: auto;
-		margin: auto;
-		padding: 0;
-		background-color: #222222; 
-		overflow: hidden;
-	}
-
-	.top-nav {
-    position: absolute;
-    top: 50px; 
-    right: 100px; 
-    z-index: 100; 
-}
-
-.top-nav ul {
-    display: flex;
-    gap: 40px; 
-    list-style: none;
-}
-
-.top-nav a {
-    font-family: 'Times New Roman', serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: ghostwhite;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-
-.top-nav a:hover {
-    color: #16AAAA; 
-}
-
-
-.side-title {
-    position: absolute;
-    top: 70px;
-    left: 70px; 
-    z-index: 100;
-}
-
-.side-title a {
-    font-family: 'Times New Roman', serif;
-    font-size: 32px;
-    font-weight: bold;
-    color: ghostwhite;
-    text-decoration: none;
-    letter-spacing: 4px;
-
-    writing-mode: vertical-rl; 
-    text-transform: uppercase; 
-    
-    transition: opacity 0.3s ease;
-}
-
-.side-title a:hover {
-    opacity: 0.7;
-}
-
-
-.side-title {
-    position: absolute;
-    top: 70px;
-    left: 70px; 
-    z-index: 100;
-}
-
-.side-title a {
-    font-family: 'Times New Roman', serif;
-    font-size: 32px;
-    font-weight: bold;
-    color: ghostwhite;
-    text-decoration: none;
-    letter-spacing: 4px;
-
-    writing-mode: vertical-rl; 
-    text-transform: uppercase; 
-    
-    transition: opacity 0.3s ease;
-}
-
-.side-title a:hover {
-    opacity: 0.7;
-}
-
-.right-scroll-nav {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 150px;
-    height: 600px;
-    z-index: 200; 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    pointer-events: none;
-}
-
-.right-scroll-nav::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -250px; 
-    width: 400px;
-    height: 600px;
-    border: 2px solid rgba(22, 170, 170, 0.3); 
-    border-radius: 50%;
-}
+<style>
 
 .right-scroll-nav ul {
     list-style: none;
@@ -130,7 +19,7 @@
     right: 15px;
     display: flex;
     flex-direction: column;
-    gap: 100px; 
+    gap: 110px; 
     align-items: flex-end;
     pointer-events: auto; 
 }
@@ -155,117 +44,6 @@
 .right-scroll-nav li:nth-child(1) { transform: translateX(-70px); }
 .right-scroll-nav li:nth-child(2) { transform: translateX(-90px); }  
 .right-scroll-nav li:nth-child(3) { transform: translateX(-70px); } 
-
-.title {
-		position: relative;
-		padding: 200px 200px 300px 200px ;
-		display: block;
-		margin: auto;
-	}
-
-	.title p{
-		font-weight: regular;
-		font-size: 18px;
-		line-height: 30px;
-		text-align: left;
-		padding: 20px 0px;
-		padding-left: 0px;
-		word-break: keep-all;
-		color:#E0E0E0;
-		max-width: none;
-	}
-
-	h1{	position: relative;
-		font-family: 'Times New Roman', serif;
-		font-size: 300px;
-		color:#FF6B6B;
-		letter-spacing: -6px;
-		transform: scaleX(0.8);
-		display: inline-block;
-		transform-origin: left top; 
-		z-index: 5;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-	}
-
-
-	.archtitle{
-		position: relative;
-		padding: 200px 0 200px 0;
-		display: block;
-	}
-
-	.archnum{
-		font-weight: regular;
-		font-size: 23px;
-		text-align: left;
-		padding: 0px 200px 10px 200px; 
-		word-break: keep-all;
-		color:#16AAAA;
-		z-index: 5} 
-
-	.content{
-		position: relative;
-		padding: 250px 250px;
-		margin: auto;
-		display: block;
-	}
-
-	h2{ position: relative;
-		font-family: 'noto sans kr', serif;
-		font-size: 150px;
-		color: #E0E0E0; 
-		line-height: auto;
-		padding: 0 200px;
-		z-index: 5;
-		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
-	}
-
-	p {	position: relative;
-		z-index: 5;
-		font-weight: normal;
-		font-size: 26px;
-		line-height: 46px;
-		text-align: left;
-		max-width: 550px;
-		padding: 40px 100px;
-		word-break: keep-all;
-		color:#E0E0E0;
-		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
-
-	}
-	.coverimg {position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height:100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 1;
-            pointer-events: none;}
-.quotes p{
-		text-align: left;
-		font-weight: bold;
-		font-size: 48px;
-		line-height: 80px;
-		max-width: none;
-		color:#FF7676;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-		padding: 0px;
-}
-	.lastquotes{padding-bottom: 400px}
-
-	.lastquotes p{
-		text-align: left;
-		font-weight: bold;
-		font-size: 42px;
-		line-height: 80px;
-		color:#16AAAA;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-		padding: 0px 250px;
-		max-width: none;
-	}
- 
-
 
 	</style>
 </head>
@@ -300,6 +78,124 @@
 				찾아 여정을 떠나야만 한다.</p>
 		</div>
 	</section>
+
+		<section>
+		<div class="archtitle" style="height: 1000px;">
+			<img src="./img/QUEST1.gif" class="coverimg";>	
+			<p class="archnum" id="chapter1">01</p>
+			<h2 style="text-align: center;">
+				아버지를 찾아서.
+			</h2>
+		</div>
+
+		<div class="content">
+			<p>이타카 왕 오디세우스가 귀환 중 실종되고 20년. 이타카의 궁전은 여왕 페넬로페를 협박하며 왕위를 노리는 오만한 구혼자들의 연회로 난장판이 되어 있었다.</p>
+		</div>
+
+		<div class="content" >
+			<p style="margin-left: auto;">오디세우스의 아들 텔레마코스은 무력감에 빠져있었다. 하지만 그의 앞에 마침내 지혜의 여신 아테네가 조언자 멘토르의 모습으로 나타났다. 
+			"아버지는 살아계신다. 그러니 당장 나약함을 떨치고 아버지를 찾아 세상 밖으로 항해를 떠나라"
+		</p>
+		</div>
+
+		<div class="content">
+			<p style="max-width: 700px;">
+		그 말에 용기를 얻은 텔레마코스는 구혼자들의 방해를 뚫고 은밀히 배를 띄운다. 아버지의 행방을 찾기위한 그의 여정이 시작된 것이다. 그는 트로이 전쟁에서 아버지와 함께 싸운 <span>네스토르 왕</span>과 <span>메넬라오스 왕</span>을 찾아가기로 한다. 
+		</p>
+		</div>
+
+		<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<p>바람이 돛 한가운데를 가득 채우자, 배가 나아감에 따라 주위에서 푸른 파도가 크게 소리쳤다. 배는 물결을 가르며 길을 서둘렀다.
+			</p>
+			<p style="font-size:100px; text-align: right;">”</p>
+		</div>
+
+	</section>
+
+	<section>
+		<div class="archtitle" style="height: 1000px;">
+			<img src="./img/QUEST2.gif" style="position:absolute; width: 100%; z-index: 1;">	
+			<p class="archnum" id="chapter2">02</p>
+			<h2>노왕 네스트로.</h2>
+		</div>
+		<div class="content">
+			<p style="max-width:700px">
+			텔레마코스는 첫 목적지인 퓔로스 섬에 도착해 트로이 전쟁의 영웅이자 현자, 네스토르를 만났다. 텔레마코스는 그 위엄 앞에 긴장했으나, 노왕은 그를 극진히 대접했다. 아버지의 생사를 묻자, 노왕은 전쟁을 회상하며 오디세우스의 지략과 용맹함을 찬양했다.
+		</p>
+		</div>
+
+		<div class="content">
+			<p style="margin-left: auto;">
+			그러나 노왕은 전쟁이 끝나고 바로 그와 헤어졌기에, 그가 살아있는지 혹은 어디에 있는지 알지 못한다고 털어놓았다. 낙담하는 영웅의 아들에게 네스토르는 "너에게 아버지의 기질이 그대로 보인다"며, 아테나 여신이 아버지를 아꼈듯 너 또한 지켜줄 것이라고 축복해줬다.
+
+
+		</div>
+
+		<div class="content">
+			<p style="margin-left: auto;">
+			노왕은 이별에 앞서, 가장 늦게 귀환해 세상 일을 잘 알을 메넬라오스 왕을 찾아가 보라 조언했다. 그리고 텔레마코스에게 자신의 아들을 동행시키고 전차와 명마까지 내주었다. 단서는 얻지 못했으나 아버지의 위상을 전해 들은 텔레마코스는 비로소 용기를 얻고 발길을 옮겼다.
+
+		</div>
+	</section>
+
+
+	<section>
+		<div class="archtitle" style="height: 1000px;">
+			<img src="./img/QUEST3.gif" style="position:absolute; width: 100%; z-index: 1;">	
+			<p class="archnum" id="chapter3">03</p>
+			<h2 style="padding-top:600px">스파르타 왕과</h2>
+			<h2>전쟁의 미녀.</h2>
+		</div>
+		<div class="content">
+			<p style="max-width:700px">
+			 스파르타에 도착한 텔레마코스는 전쟁의 주역, 헬레네의 남편, 메넬라오스 왕을 만난다. 마침 연회 중이던 왕은 그들을 환대했다. 연회 도중 메넬라오스는 오디세우스의 이름을 올리며 눈물지었는데, 텔레마코스 역시 눈물을 훔쳤다. 왕은 그 모습을 보고 그가 오디세우스의 아들임을 알아챘다.
+		</p>
+		</div>
+
+		<div class="content">
+			<p style="margin-left: auto;">
+			텔레마코스가 비참한 상황을 전하며 아버지 행방을 묻자, 메넬라오스는 귀환길에 표류한 이집트 바다에서 겪었던 기묘한 이야기를 들려주었다. </p>
+
+			<p>그는 고향으로 가기위해 바다의 노신 프로테우스를 붙잡아 협박했는데, 노신은 귀환 방법과 함께 세상 영웅들의 생사도 말해주었다. 그말에 따르면 오디세우스는 여신 칼립소의 섬에서 돌아가지 못하고 눈물로 밤을 지새우고 있다는 것이다.</p> 
+
+
+
+		</div>
+
+		<div class="content">
+			<p style="margin-left: auto; max-width: 700px;">
+			아버지가 살아있다는 단서를 얻은 텔레마코스는 마침내 안도감과 희망을 품었다. 왕은 기뻐하는 그를 더 쉬어 가게 해줬고, 떠나는 날에 보물을 선물하며 그의 앞날을 축복했다. 
+			<br>아버지를 구할 수 있다는 확신을 얻은 텔레마코스는 더 강인해진 영웅의 기상을 품고 다시 이타카로 돌아갈 준비를 시작했다.</p>
+
+
+		</div>
+	</section>
+
+	<section>
+		<div class="content" style="">
+		<p style="color: #16AAAA;text-align:center;margin: auto;">
+			1부 QUEST<br>
+			fin.
+		</p>
+	</div>
+
+	</section>
+	
+<footer class="bottom-footer">
+    <div class="footer-left">
+        <a href="notos.html">II. NOTOS</a>
+    </div>
+    
+    <div class="footer-center">
+        <a href="index.html" class="footer-title">ODYSSEY</a>
+        <p class="footer-copy">본 콘텐츠는 '오디세이아'의 각색본으로 원본과 비교해 과장, 축약, 수정된 부분이 존재합니다.<br> Copyright &copy; seoultech 2026-1 웹인터랙션디자인 김유신</p>
+    </div>
+    
+    <div class="footer-right">
+        <a href="home.html">III. HOME</a>
+    </div>
+</footer>
 
 </body>
 </html>
