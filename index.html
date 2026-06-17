@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>0DYSSEY</title>
-    
+
     <script src="./script.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+KR:wght@100..900&family=Shrikhand&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
- 
 body, html {overflow-x: clip;}
 
 	body,h1,h2,p,ul{margin:0; padding:0;}
@@ -35,20 +35,19 @@ body, html {overflow-x: clip;}
     h2{ font-family: 'Cormorant Garamond', serif;
     	font-size: 200px;
     	color:#FF6B6B;
-
     	letter-spacing: -6px;
     	transform: scaleX(0.8); 
     	}
 	
 	#nav-bar {
-    position: fixed; /* 절대 안 도망감 */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
     background-color: rgba(34, 34, 34, 0.85);
     backdrop-filter: blur(10px);
-    z-index: 9998; /* 모든 콘텐츠 위에 군림 */
+    z-index: 9998; 
     opacity: 0; 
     pointer-events: none; /* 클릭 방해 안 하게 */
 }
@@ -60,7 +59,7 @@ body, html {overflow-x: clip;}
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 13rem;
+    font-size: 23rem;
     color: #000000;
     font-weight: 900;
     letter-spacing: -6px;
@@ -579,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let winW = window.innerWidth;
         let winH = window.innerHeight;
 
-        // 1. 붉은 화면 & 말 이미지 (아까랑 같음)
+       
         if (progress < 0.2) {
             redBg.style.width = '100vw';
             redBg.style.height = '100vh';
@@ -629,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // 스크롤 완전히 내렸을 때 상단에 영원히 박제 (이후 섹션에서도 유지됨)
             let moveY = (winH / 2 - 40); 
-            titleText.style.transform = `translate(-50%, calc(-50% - ${moveY}px)) scale(0.25)`;
+            titleText.style.transform = `translate(-50%, calc(-50% - ${moveY}px)) scale(0.1)`;
             titleText.style.color = `#FF6B6B`;
             navBar.style.opacity = '1';
         }
