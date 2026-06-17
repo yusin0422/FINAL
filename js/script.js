@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
 			const windowHeight = window.innerHeight;
 
 	
-			const startY = windowHeight * 0.6; 
+			const startY = windowHeight * 0.5; 
 		
 			const endY = -windowHeight * 1.5;   
 			const totalRange = startY - endY;
@@ -20,8 +20,8 @@ window.addEventListener('scroll', () => {
 
 			if (leftP && rightP) {
 			
-				const maxLeftMove = 350;  
-				const maxRightMove = 2000;
+				const maxLeftMove = 550;  
+				const maxRightMove = 1900;
 
 				leftP.style.transform = `translateY(${progress * maxLeftMove}px)`;
 				rightP.style.transform = `translateY(${progress * maxRightMove}px)`;
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     normalTargets.forEach(el => el.classList.add('scroll-fade'));
 
-    // 2. 주인님의 시차 이동이 살아 숨쉬는 .flex 내부의 p 태그들 (투명도만 제어)
+    // 2. 시차 이동이 살아 숨쉬는 .flex 내부의 p 태그들 (투명도만 제어)
     const flexParagraphs = document.querySelectorAll('.flex p');
     flexParagraphs.forEach(el => el.classList.add('scroll-fade-opacity'));
 
