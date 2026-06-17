@@ -4,7 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>0DYSSEY</title>
+    <script src="./script.js" defer></script>
 <style>
+
+body, html {overflow-x: clip;}
+
 	body,h1,h2,p,ul{margin:0; padding:0;}
 
 	section{
@@ -13,7 +17,7 @@
 	margin: auto;
 	padding: 0;
 	background-color: #222222; 
-    overflow: hidden;}
+    overflow-x: clip;}
 
 	p{
     		font-weight: normal;
@@ -32,47 +36,89 @@
     	transform: scaleX(0.8); 
     	}
 	
-	.titlesection{min-width: 1600px;
-	height: 100vh;
-	margin: auto;
-	padding: 0;
-	background-color: #222222; 
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    		}
-
-	.title{
-	width: 1200px; 
-    height: 600px; 
-	position: relative; 
-    background-color:#FF6B6B;
-    display: flex;
-    justify-content: center;
-    align-items: center;}
-
-	.title .horse-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    height: 950px; 
-    width: auto;
-    z-index: 1;
-    opacity: 0.85;/
+	#nav-bar {
+    position: fixed; /* 절대 안 도망감 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(34, 34, 34, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 9998; /* 모든 콘텐츠 위에 군림 */
+    opacity: 0; 
+    pointer-events: none; /* 클릭 방해 안 하게 */
 }
 
-	.title h1 {
+/* 🔠 영구 고정 오디세이 텍스트 */
+#odyssey-title {
+    position: fixed; /* 얘도 못 박아둠 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
     font-family: 'Times New Roman', serif;
     font-size: 13rem;
     color: #000000;
     font-weight: 900;
     letter-spacing: -6px;
-    transform: scaleX(0.8); 
     margin: 0;
+    z-index: 9999; /* 제일 꼭대기 층 */
+    opacity: 0; 
+    transition: opacity 1.5s ease;
+    transform-origin: center center; 
+}
+
+.titlesection {
+    min-width: 1600px;
+    height: 300vh; 
+    background-color: #222222;
     position: relative;
-    z-index: 2;}
+    margin: auto;
+    padding: 0;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.red-fullscreen-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FF6B6B;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.title {
+    width: 1200px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.title .horse-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 950px;
+    width: auto;
+    opacity: 0; 
+    transition: opacity 1.5s ease;
+    pointer-events: none;
+}
 
 	.about{
     	position: relative;
@@ -189,16 +235,19 @@
 </style>
 </head>
 <body>
-<section class="titlesection">
+ <div id="nav-bar"></div>
+<h1 id="odyssey-title">ODYSSEY</h1>
 
-    <div class="title">
-        <img src="title21.png" class="horse-img" alt="ODYSSEY HORSE">
-        <h1>ODYSSEY</h1>
+<section class="titlesection" id="scroll-track">
+    <div class="sticky-container">
+        <div class="red-fullscreen-bg" id="red-bg"></div>
+        <div class="title" id="title-content">
+            <img src="title21.png" class="horse-img" id="horse-img" alt="ODYSSEY HORSE">
+        </div>
     </div>
 </section>
-
 <section>
-<div class="about">
+<div class="about" style="padding-top: 0px;">
 	<h2>ABOUT</h2>
 	<p>호메로스의 《오디세이아》는 신의 분노 속에서 수 년간 바다를 표류한 영웅 오디세우스의 귀향을 다룬 서사시이자, 서구 문학사에서 '영웅의 여정'이라는 원형을 정립한 최초의 모험담이다. 시련을 겪으며 성장하고 마침내 귀환하는 이 서사 구조는 오늘날 모든 현대 소설과 영화의 뿌리가 되었으며, 제목인 '오디세이' 자체가 '파란만장한 여정'을 뜻하는 대명사로 굳어질 만큼 압도적인 위상을 차지한다. </p>
 
@@ -209,7 +258,7 @@
 <section>
 	<div class="about">
 	<h2>STORY</h2>
-	<p style="padding: 0px 300px 0px 300px"></p>
+	<p style="padding: 0px 300px 0px 300px">click and enjoy it.</p>
 	
 	<div class="plot">
 
@@ -277,6 +326,84 @@
     </div>
 	</div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('scroll-track');
+    const redBg = document.getElementById('red-bg');
+    const titleText = document.getElementById('odyssey-title');
+    const horseImg = document.getElementById('horse-img');
+    const navBar = document.getElementById('nav-bar');
 
+    setTimeout(() => {
+        horseImg.style.opacity = '0.85';
+        titleText.style.opacity = '1';
+    }, 1000);
+
+    window.addEventListener('scroll', () => {
+        let rect = track.getBoundingClientRect();
+        let scrollHeight = track.offsetHeight - window.innerHeight;
+        let progress = -rect.top / scrollHeight;
+        progress = Math.max(0, Math.min(1, progress)); 
+
+        let winW = window.innerWidth;
+        let winH = window.innerHeight;
+
+        // 1. 붉은 화면 & 말 이미지 (아까랑 같음)
+        if (progress < 0.2) {
+            redBg.style.width = '100vw';
+            redBg.style.height = '100vh';
+            redBg.style.opacity = '1';
+            horseImg.style.opacity = '0.85';
+        } else if (progress >= 0.2 && progress < 0.5) {
+            let localP = (progress - 0.2) / 0.3;
+            redBg.style.width = (winW - (winW - 1200) * localP) + 'px';
+            redBg.style.height = (winH - (winH - 600) * localP) + 'px';
+            redBg.style.opacity = '1';
+            horseImg.style.opacity = `${0.85 * (1 - localP)}`; 
+        } else if (progress >= 0.5 && progress < 0.8) {
+            let localP = (progress - 0.5) / 0.3;
+            redBg.style.width = (1200 * (1 - localP)) + 'px';
+            redBg.style.height = (600 * (1 - localP)) + 'px';
+            redBg.style.opacity = `${1 - localP}`;
+            horseImg.style.opacity = '0';
+        } else {
+            redBg.style.width = '0px';
+            redBg.style.height = '0px';
+            redBg.style.opacity = '0';
+            horseImg.style.opacity = '0';
+        }
+
+        // 2. 텍스트 & 네비게이션 고정 로직 (계산식 수정됨)
+        if (progress < 0.4) {
+            // 원본 (화면 중앙)
+            titleText.style.transform = `translate(-50%, -50%) scale(1)`;
+            titleText.style.color = `#000000`;
+            navBar.style.opacity = '0';
+        } else if (progress >= 0.4 && progress <= 0.8) {
+            let txtP = (progress - 0.4) / 0.4;
+            
+            // 얼마나 위로 올라갈지 픽셀 계산 (화면 절반 - 상단 네비게이션 중앙 40px)
+            let moveY = (winH / 2 - 40) * txtP; 
+            let scale = 1 - (0.75 * txtP); // 1배율 -> 0.25배율로 축소
+            
+            // X축은 정중앙(-50%) 유지, Y축만 위로 끌어올림
+            titleText.style.transform = `translate(-50%, calc(-50% - ${moveY}px)) scale(${scale})`;
+            
+            let r = Math.floor(255 * txtP);
+            let g = Math.floor(107 * txtP);
+            let b = Math.floor(107 * txtP);
+            titleText.style.color = `rgb(${r}, ${g}, ${b})`;
+            
+            navBar.style.opacity = `${txtP}`; 
+        } else {
+            // 스크롤 완전히 내렸을 때 상단에 영원히 박제 (이후 섹션에서도 유지됨)
+            let moveY = (winH / 2 - 40); 
+            titleText.style.transform = `translate(-50%, calc(-50% - ${moveY}px)) scale(0.25)`;
+            titleText.style.color = `#FF6B6B`;
+            navBar.style.opacity = '1';
+        }
+    });
+});
+</script>
 </body>
 </html>
