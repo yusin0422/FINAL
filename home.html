@@ -4,125 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>HOME</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/script.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+KR:wght@100..900&family=Shrikhand&display=swap" rel="stylesheet">
+
 	<style>
-		html {
-    scroll-behavior: smooth;}
-
-	body,h1,h2,p,ul{margin:0; padding:0;}
-
-	section{
-		min-width: 1600px;
-		height: auto;
-		margin: auto;
-		padding: 0;
-		background-color: #222222; 
-		overflow: hidden;
-	}
-
-	.top-nav {
-    position: absolute;
-    top: 50px; 
-    right: 100px; 
-    z-index: 100; 
-}
-
-.top-nav ul {
-    display: flex;
-    gap: 40px; 
-    list-style: none;
-}
-
-.top-nav a {
-    font-family: 'Times New Roman', serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: ghostwhite;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-
-.top-nav a:hover {
-    color: #16AAAA; 
-}
-
-
-.side-title {
-    position: absolute;
-    top: 70px;
-    left: 70px; 
-    z-index: 100;
-}
-
-.side-title a {
-    font-family: 'Times New Roman', serif;
-    font-size: 32px;
-    font-weight: bold;
-    color: ghostwhite;
-    text-decoration: none;
-    letter-spacing: 4px;
-
-    writing-mode: vertical-rl; 
-    text-transform: uppercase; 
-    
-    transition: opacity 0.3s ease;
-}
-
-.side-title a:hover {
-    opacity: 0.7;
-}
-
-
-.side-title {
-    position: absolute;
-    top: 70px;
-    left: 70px; 
-    z-index: 100;
-}
-
-.side-title a {
-    font-family: 'Times New Roman', serif;
-    font-size: 32px;
-    font-weight: bold;
-    color: ghostwhite;
-    text-decoration: none;
-    letter-spacing: 4px;
-
-    writing-mode: vertical-rl; 
-    text-transform: uppercase; 
-    
-    transition: opacity 0.3s ease;
-}
-
-.side-title a:hover {
-    opacity: 0.7;
-}
-
-.right-scroll-nav {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 150px;
-    height: 600px;
-    z-index: 200; 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    pointer-events: none;
-}
-
-.right-scroll-nav::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -250px; 
-    width: 400px;
-    height: 600px;
-    border: 2px solid rgba(22, 170, 170, 0.3); 
-    border-radius: 50%;
-}
 
 .right-scroll-nav ul {
     list-style: none;
@@ -155,117 +43,6 @@
 .right-scroll-nav li:nth-child(1) { transform: translateX(-70px); }
 .right-scroll-nav li:nth-child(2) { transform: translateX(-90px); }  
 .right-scroll-nav li:nth-child(3) { transform: translateX(-70px); } 
-
-.title {
-		position: relative;
-		padding: 200px 200px 300px 200px ;
-		display: block;
-		margin: auto;
-	}
-
-	.title p{
-		font-weight: regular;
-		font-size: 18px;
-		line-height: 30px;
-		text-align: left;
-		padding: 20px 0px;
-		padding-left: 0px;
-		word-break: keep-all;
-		color:#E0E0E0;
-		max-width: none;
-	}
-
-	h1{	position: relative;
-		font-family: 'Times New Roman', serif;
-		font-size: 300px;
-		color:#FF6B6B;
-		letter-spacing: -6px;
-		transform: scaleX(0.8);
-		display: inline-block;
-		transform-origin: left top; 
-		z-index: 5;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-	}
-
-
-	.archtitle{
-		position: relative;
-		padding: 200px 0 200px 0;
-		display: block;
-	}
-
-	.archnum{
-		font-weight: regular;
-		font-size: 23px;
-		text-align: left;
-		padding: 0px 200px 10px 200px; 
-		word-break: keep-all;
-		color:#16AAAA;
-		z-index: 5} 
-
-	.content{
-		position: relative;
-		padding: 250px 250px;
-		margin: auto;
-		display: block;
-	}
-
-	h2{ position: relative;
-		font-family: 'noto sans kr', serif;
-		font-size: 150px;
-		color: #E0E0E0; 
-		line-height: auto;
-		padding: 0 200px;
-		z-index: 5;
-		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
-	}
-
-	p {	position: relative;
-		z-index: 5;
-		font-weight: normal;
-		font-size: 26px;
-		line-height: 46px;
-		text-align: left;
-		max-width: 550px;
-		padding: 40px 100px;
-		word-break: keep-all;
-		color:#E0E0E0;
-		text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
-
-	}
-	.coverimg {position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height:100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 1;
-            pointer-events: none;}
-.quotes p{
-		text-align: left;
-		font-weight: bold;
-		font-size: 48px;
-		line-height: 80px;
-		max-width: none;
-		color:#FF7676;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-		padding: 0px;
-}
-	.lastquotes{padding-bottom: 400px}
-
-	.lastquotes p{
-		text-align: left;
-		font-weight: bold;
-		font-size: 42px;
-		line-height: 80px;
-		color:#16AAAA;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-		padding: 0px 250px;
-		max-width: none;
-	}
- 
-
 
 	</style>
 </head>
@@ -300,6 +77,154 @@
 				동시에 물밑에선 복수의 계획이 시작된다. 
 		</div>
 	</section>
+
+	<section>
+		<div class="archtitle" style="height: 1000px;">
+			<p class="archnum" id="chapter1">01</p>
+			<h2 style="text-align: center;">
+				20년만의 재회.
+			</h2>
+		</div>
+
+		<div class="content" >
+			<img src="./img/home1.gif" style="position:absolute; width:90%">
+
+			<p style="margin-left:"> 오디세우스가 귀환했다. 하지만 궁전을 점거한 구혼자들을 피해야 했기에, 여신 아테네는 그를 초라한 거지로 변장시켰다. 오디세우스는 충직한 돼지치기의 오두막에 은신해 기회를 엿보았다.</p>
+
+			<p style="margin-left:auto; max-width: 700px;"> 마침 은밀히 귀국한 아들 텔레마코스도 여신을 따라 오두막으로 향했다. 평생 얼굴도 못본 아버지가 거지 모습을 한 것도 모른 채, 텔레마코스는 거지를 너그럽게 선대해주었다. 돼지지기가 자리를 비우자, 여신은 오디세우스의 누더기를 걷어내고 위엄 넘치는 본모습을 되찾아 주었다.
+			</p>
+
+			</div>
+			<div class="content">
+			<p> 순식간에 눈앞의 노인이 늠름한 영웅으로 변하자 텔레마코스는 두려워했으나, 오디세우스는 눈물을 흘리며 자신이 친아버지임을 고백했다. 20년 만에 마주한 부자는 서로를 끌어안고 통곡했다.</p>
+
+		</div>
+
+				<div class="content" style="padding-top: 800px;">
+					<p style="margin-left:auto; max-width: 700px;">상봉한 부자는 구혼자들을 향한 복수 계획을 세웠다. 오디세우스는 거지의 모습으로 위장해 궁전으로 잠입, 텔레마코스는 무기고의 무기들을 빼돌려 구혼자들이 반격을 막도록 한다. 그들은 마침내 거대한 복수의 서막을 올린 것이다.
+					</p>
+				</div>
+
+<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<p>나는 신이 아니다. 내가 어찌 신과 같겠느냐? 나는 네가 그 때문에 탄식하며 고통을 겪고 폭력을 참아내야 했던, 네가 그리워하던 네 아버지다.
+			</p>
+			<p style="font-size:100px; text-align: right;">”</p>
+		</div>
+
+				<section>
+		<div class="archtitle" style="height: 1000px;">
+			<p class="archnum" id="chapter2">02</p>
+			<h2>
+				마지막 시련, 
+				<br>그리고 복수
+			</h2>
+		</div>
+
+			<div class="content">
+				<p style="max-width: 700px;">궁전으로 잠입한 오디세우스가 거지 행세를 하는 동안, 구혼자들 압박에 한계에 다다른 페넬로페는 마지막 구혼 조건을 내걸었다. 그것은 과거 오디세우스가 남긴 강궁을 당겨, 일렬로 세운 열 두 도끼머리 구멍을 단 한 발의 화살로 관통시키는 불가능에 가까운 시험이었다. 오만한 구혼자들이 차례로 나섰으나, 시위조차 걸지 못해 쩔쩔매야 했다.</p>
+			</div>
+			<div class="content" style="padding-bottom:0">
+				<p style="margin-left:auto;">모두가 포기하려 할 때, 초라한 거지의 모습을 한 오디세우스가 조용히 앞으로 걸어 나와 활을 잡았다.</p>
+			</div>
+
+			<div class="content" style="height:1000px">
+				<img src="./img/HOME2.gif" class="coverimg">
+			</div>
+
+			<div class="content" style="padding-top:0">
+				 <p>구혼자들의 비웃음 속에서도 오디세우스는 능숙하고 가볍게 시위를 당겼고, 조준을 마친 그가 시위를 놓자 화살은 한 치의 오차도 없이 열두 개의 도끼 구멍을 한 번에 번개처럼 관통했다.</p>
+
+
+				<p style="margin-left:auto; padding-top: 350px;">순식간에 궁전은 정적에 휩싸였고, 구혼자들의 얼굴은 공포로 하얗게 질렸다. 
+				</p>
+
+			</div>
+
+
+			<div class="content" style="height:1000px">
+				<p style="max-width: 700px;">마침내 영웅 오디세우스는 제단 위로 뛰어오르며 자신의 본모습을 들어냈다. 텔레마코스 또한 창을 쥔 채 아버지의 곁에 당당히 섰다. 그들은 창과 화살을 발밑에 쏟아부었다. 평생 왕과 그 가족을 기만하던 자들을 향한 최후의 심판이 시작된 것이다.</p>
+				<img src="./img/HOME3.gif" class="coverimg">
+			</div>
+
+			<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<p>그러자 재치 있는 오디세우스가 누더기를 벗어던지고 문지방 위로 뛰어올랐다. 그는 화살통을 들고는 수많은 화살들을 발 앞에 쏟아부으며 구혼자들에게 말했다. 
+				<br> ‘이제 이 처참한 경기는 끝났다!’
+			</p>
+			<p style="font-size:100px; text-align: right;">”</p>
+		</div>
+</section>
+
+<section>
+		<div class="archtitle" style="height: 200px;">
+			<p class="archnum" id="chapter3">03</p>
+			<h2 style="text-align: center;">
+				재생.
+			</h2>
+
+
+		</div>
+
+		<div class="content">
+			<p>
+			복수가 끝나고, 마침내 오디세우스와 페넬로페가 마주했다. 하지만 20년 세월의 벽과 눈앞의 남편이 다른 이의 변장이 아닐까 의심한 페넬로페는 마지막 시험을 던졌다. 
+		</p>
+		</div>
+
+			<div class="content">
+			<p style="margin-left:auto">
+			그녀는 유모에게 "안방에 있는 우리의 침대를 밖으로 꺼내어 잠자리를 마련하라"고 차갑게 명했다.
+		</p>
+
+		</div>
+
+			<div class="content">
+				<p style="max-width:700px">
+		그 말을 들은 오디세우스는 비로소 정색하며 페넬로페에게 침대의 비밀을 말했다. 그 침대는 과거 그가 자라나있던 올리브 나무를 그대로 침대의 기둥으로 삼은, 오직 두 사람만의 비밀이 깃든 침대였다. 살아있는 나무와 결합해 있어 결코 옮길 수 없었기에, 침대를 옮기라는 아내의 말은 오디세우스가 듣기에 완전한 모순이었던 것이다.
+			</p>
+		</div>
+
+			<div class="content" style="height:900px">
+		<img src="./img/HOME4.gif" style="position:relative; width:80%; transform: 50% 50%;">				
+			<p style="margin-left:auto; max-width: 700px;">둘만의 비밀을 남편이 그대로 말자, 페넬로페는 마침내 의심을 거두고 남편의 품에 안겼다. 20년간의 고독과 불신이 사라지고, 온 가족이 마침내 완벽하게 결합했다. 오랜 방랑과 처절한 복수극의 대서사시는 이렇게 마침표를 찍게 되었다.
+</p>
+			</div>
+			<div class="content lastquotes" >
+			<p style="font-size:100px;">“</p>
+			<p>부인, 우리는 아직 모든 고난의 끝에 이른 것이 아니오. 앞으로도 헤아릴 수 없이 많은 노고가 남아 있겠지만, 이제는 침대로 가 부드러운 잠을 자며 행복을 누립시다.
+			</p>
+			<p style="font-size:100px; text-align: right;">”</p>
+		</div>
+	</section>
+
+<section>
+		<div class="content" style="">
+		<p style="color: #16AAAA;text-align:center;margin: auto;">
+			3부 HOME<br>
+			fin.
+		</p>
+	</div>
+
+	</section>
+
+			</section>
+
+<footer class="bottom-footer">
+    <div class="footer-left">
+        <a href="quest.html">I. QUEST</a>
+    </div>
+    
+    <div class="footer-center">
+        <a href="index.html" class="footer-title">ODYSSEY</a>
+        <p class="footer-copy">본 콘텐츠는 '오디세이아'의 각색본으로 원본과 비교해 과장, 축약, 수정된 부분이 존재합니다.<br> Copyright &copy; seoultech 2026-1 웹인터랙션디자인 김유신</p>
+    </div>
+    
+    <div class="footer-right">
+        <a href="notos.html">II. NOTOS</a>
+    </div>
+</footer>
+
 
 </body>
 </html>
