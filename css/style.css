@@ -17,7 +17,7 @@
         margin: 0 auto;
         padding: 0;
         background-color: #222222; 
-        overflow: hidden;
+        overflow-x: clip;
     }
 
     .top-nav {
@@ -133,7 +133,7 @@
 .right-scroll-nav li:nth-child(4) { transform: translateX(-88px); }  
 .right-scroll-nav li:nth-child(5) { transform: translateX(-40px); } 
 
-/* 일반 요소용 (기존 그대로 유지) */
+
 .scroll-fade {
     opacity: 0;
     transform: translateY(30px);
@@ -146,8 +146,6 @@
     transform: translateY(0);
 }
 
-/* ⚡ [새로 추가] .flex 내부의 p 태그들을 위한 오파시티 전용 규칙 */
-/* 위치 이동(transform)은 주인님의 스크립트가 완벽하게 통제하므로, 여기선 투명도만 부드럽게 켜줍니다. */
 .scroll-fade-opacity {
     opacity: 0;
     transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -299,7 +297,38 @@
         padding: 0 !important;
         margin: 0;
     }
+    
+    .killgiant p{padding:300px 100px 300px 100px}
 
+.killgiant {
+    position: relative;
+    view-timeline-name: --giant-tl;
+    view-timeline-axis: block;
+}
+
+.tree-moving {
+    position: sticky;
+    top: 40vh;
+    
+    z-index: 4; 
+    display: block;
+    will-change: transform;
+
+    animation: moveDiagonal linear forwards;
+    animation-timeline: --giant-tl;
+}
+
+
+@keyframes moveDiagonal {
+    0%, 35% {
+   
+        transform: translate(850px, -800px);
+    }
+    100% {
+       
+        transform: translate(-400px, -1200px);
+    }
+}
     .img-wrapper-14 {
     position: relative;
     width: 70%; 
@@ -315,7 +344,7 @@
 
 .img-wrapper-14 .floating-img {
     position: absolute;
-    width: 20%; 
+    width: 30%; 
     z-index: 2;
     
    
@@ -332,14 +361,13 @@
     transform: translate(0, 0);
 }
 
-/* 2단계: 좌측 하단 */
 .img-wrapper-14.step-2 .floating-img {
     top: 55%;
     left: 10%;
     transform: translate(0, 0);
 }
 
-/* 3단계: 한가운데 회귀 */
+
 .img-wrapper-14.step-3 .floating-img {
     top: 70%;
     left: 60%;
@@ -347,29 +375,31 @@
 }
 
 .canvas-container {
-    position: relative; /* 자식들을 잡아줄 기준점 */
+    position: relative; 
     width: 100vw;
     height: 100vh;
-    padding: 180px;       /* 적당한 높이 확보 */
+    padding: 180px;       
 }
 
 .text-box {
     position: absolute;
-    top: 10%;           /* 여기서 값을 줄이면 텍스트가 더 위로 올라가 */     /* 텍스트 너비 */
+    top: 30%;
+    left: 20%;         
 }
 
 .img-cow {
     position: absolute;
-    top: 0%;           /* 텍스트보다 아래에 배치 */
-    left: 0%;
-    width: 40%;         /* 이미지 크기 */
+    top: 30%;          
+    left: 30%;
+    width: 50%;         
 }
 
 .img-fire {
     position: absolute;
-    top: 30%;           /* middle 이미지랑 같은 라인 */
-    left: 68%;
+    top: 45%;           
+    left: 55%;
     width: 25%;
+    rotate: 55deg;
 }
 
     .quotes p{
@@ -394,3 +424,136 @@
         padding: 0px;
         max-width: none;
     }
+.text-container {
+    width: 80%;
+    max-width: 800px;
+    pointer-events: none;
+}
+
+.fade-text {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.sticky-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.story-section {
+    position: relative;
+    width: 100%;
+    min-width: 1600px;
+    height: 250vh;
+}
+
+.sticky-box {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.inner-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.inner-track img {
+    position: absolute;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+}
+
+
+.inner-track p {
+    position: absolute;
+    max-width: 500px
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    z-index: 10;
+}
+
+
+.text-1-1 { top: 15%; left: 10%; }
+.img-1-1  { bottom: 5%; right: 5%; width: 70%}
+
+
+.text-2-1 { top: 30%; left: 50%; transform: translate(-50%, -50%); max-width: 650px; }
+.img-2-1  { top: 5%; left: 40%; width: 50%; transform: translate(-50%, -50%); }
+.text-2-2 { top: 20%; left: 40%; transform: translate(-50%, -50%); max-width: 650px; }
+
+.img-3-1  { top: 0%; left: 0%; transform: translate(-50%, -50%); width: 90%; }
+.text-3-1 { bottom: 11%; right: 10%; }
+
+
+
+
+
+.bottom-footer {
+ 
+    margin: 50px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+.footer-left a,
+.footer-right a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: ghostwhite;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.footer-left a:hover,
+.footer-right a:hover {
+    color: #16AAAA;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+}
+
+
+.footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: ghostwhite;
+    text-decoration: none;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.footer-title:hover {
+    opacity: 0.6; 
+}
+
+.footer-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: rgba(248, 248, 255, 0.6);
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 23px;
+    text-align: center;
+}
