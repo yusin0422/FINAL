@@ -176,7 +176,7 @@
     h1{ position: relative;
         font-family: 'Cormorant Garamond', serif;
         font-size: 300px;
-        color:#E0E0E0;
+        color:#FF6B6B;
         letter-spacing: -6px;
         transform: scaleX(0.8);
         display: inline-block;
@@ -213,7 +213,7 @@
     h2{ position: relative;
         font-family: 'noto sans kr', sans-serif;
         font-size: 150px;
-        color:#E0E0E0; 
+        color: #E0E0E0; 
         line-height: auto;
         padding: 0 200px;
         z-index: 5;
