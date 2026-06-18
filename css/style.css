@@ -348,7 +348,7 @@
     z-index: 2;
     
    
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: top, left, transform;
     top: 50%;
     left: 50%;
@@ -362,15 +362,15 @@
 }
 
 .img-wrapper-14.step-2 .floating-img {
-    top: 55%;
-    left: 10%;
+    top: 40%;
+    left: 30%;
     transform: translate(0, 0);
 }
 
 
 .img-wrapper-14.step-3 .floating-img {
     top: 70%;
-    left: 60%;
+    left: 70%;
     transform: translate(-50%, -50%);
 }
 
